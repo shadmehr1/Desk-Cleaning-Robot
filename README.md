@@ -70,48 +70,52 @@ Below is some of my rationale in selecting critical components:
       
 ## **Mechanical Design & Printing**
 
-My goal wasn't to develop CAD expertise; instead, I leveraged open-source solid models from an online creator, reserving my efforts for the hands-on challenges of assembly, wiring, and programming. Accordingly, the solid models for the robotic arm structure and the circuit diagrams were sourced from a tutorial by a Peruvian YouTuber. You can find the models here: **[Insert Link to Models Here]**.
+My goal wasn't to develop CAD expertise; instead, I leveraged open-source solid models from an online creator, reserving my efforts for the hands-on challenges of assembly, wiring, and programming. Accordingly, the solid models for the robotic arm structure and the circuit diagrams were sourced from a tutorial by a Peruvian YouTuber. You can find the models [here]([URL](https://cults3d.com/en/3d-model/gadget/brazo-robotico-con-arduino-step-files-robotic-arm-guardar-reproducir-export)).
 
 These models were then 3D printed using PLA filament on my Bambu P1S printer. I printed all components with a 15% infill. The printing process was relatively smooth, with no significant issues encountered. The total print time was approximately 17 hours, requiring two separate runs as all the parts could not fit on a single print bed.
 
-**[EMBED FIGURE 2 HERE, 3d Printed Parts Laid out]**
+![All Components](images/2_Parts.jpg)
+*Figure 2: All components needed for the robot.*
 
 ### **Assembly**
 
 #### **Component Assembly:**
-I used the solid model assembly in CREO Parametric, as shown in **Figure [CAD Assembly Image Name, e.g., Figure 3]**, to serve as my guide when assembling each printed component. Each joint was mated using a servo adapter plate and fasteners which came with the servos. It was crucial to pay close attention during this phase to avoid mounting moving components too closely and thereby introducing friction. To optimize the assembly and maintain nominal clearances, I heavily relied on the V2 control script to test motor movements, ultimately minimizing friction for the motors to overcome.
+I used the solid model assembly in CREO Parametric, as shown in **Figure 3**, to serve as my guide when assembling each printed component. Each joint was mated using a servo adapter plate and fasteners which came with the servos. It was crucial to pay close attention during this phase to avoid mounting moving components too closely and thereby introducing friction. To optimize the assembly and maintain nominal clearances, I heavily relied on the V2 control script to test motor movements, ultimately minimizing friction for the motors to overcome.
 
-**[EMBED FIGURE 3 HERE, CAD]**
-
+![CREO](images/3_CAD.png)
+*Figure 3: 3D Model of Hand-Gelina Jolie in CREO Parametric. This assembly was used to aid in assembly.*
 
 #### **Cable Management:**
 This phase presented significant trial and error due to unforeseen challenges with wiring, particularly given the "no soldering" requirement. This constraint often necessitated creative and sometimes bulky connection methods. While I'll elaborate further in the [Key Challenges & Lessons Learned](#key-challenges--lessons-learned) section, my recommendations for future projects include: keeping cable runs as short as possible, utilizing thinner gauge wires for all signal connections (reserving thicker wires for power), and securing lever nuts in place with hot glue to prevent disconnections.
 
-Specifically, I mounted two 5-way lever nuts at the elbow, as shown in **Figure [Elbow Lever Nuts Image Name, e.g., Figure 4]**, to relay power to the upper motors. 
+Specifically, I mounted two 5-way lever nuts at the elbow, as shown in **Figure 4**, to relay power to the upper motors. 
 
-**[EMBED FIGURE 4 HERE, Lever Nuts Elbow]**
+![Lever Nut 1](images/4_Lever1.jpg)
+*Figure 4: Lever Nuts used to organize cables and consolidate the number of power lines running up the arm.*
 
-Additionally, two more 5-way lever nuts were mounted in the base, as seen in **Figure [Base Lever Nuts Image Name, e.g., Figure 5]**, to distribute power to the remaining motors and transmit it up to the elbow's lever nuts. 
+Additionally, two more 5-way lever nuts were mounted in the base, as seen in **Figure 5**, to distribute power to the remaining motors and transmit it up to the elbow's lever nuts. 
 
-**[EMBED FIGURE 5 HERE, Mounted Lever Nuts]**
+![Lever Nut 2](images/5_Lever2.png)
+*Figure 5: Lever Nuts hot glued into the base for positive and ground runs. This helped save space in the packed base.*
 
-To further enhance connector rigidity, improve overall cable management, and simplify assembly, I utilized clear Scotch tape to create organized bundles of Dupont wires, as illustrated in **Figure [Dupont Bundles Image Name, e.g., Figure 6]**.
+To further enhance connector rigidity, improve overall cable management, and simplify assembly, I utilized clear Scotch tape to create organized bundles of Dupont wires, as illustrated in **Figure 6**.
 
-**[EMBED FIGURE 6 HERE, Dupot Bundle]**
+![DuPont Bundle](images/6_Bundle.jpg)
+*Figure 6: DuPont Cable bundles made with scotch tape saved space and made assembly much easier.*
 
 ## **Electronics**
 
 An Arduino Uno serves as the central controller for the entire robotic arm. Its built-in motor control pins were particularly advantageous, simplifying the organization and writing of the control code detailed in a later section. The circuit design itself is straightforward, primarily relying on the Arduino to relay power from the external power supply to the individual motors.
 
-**[EMBED FIGURE 7 HERE, Circuit]**
+![Circuit](images/7_Circuit.png)
+*Figure 7: Simple circuit utilizing the motor pins of the Arduino Uno. Source: [FabriCreator]([URL]([https://cults3d.com/en/3d-model/gadget/brazo-robotico-con-arduino-step-files-robotic-arm-guardar-reproducir-export)](https://fabricreator.com/)).*
 
+## **Software Control** 
 
-## **Software Control**
+The following scripts were developed to test individual components and execute the robotic arm's demonstrations. Each motor is attached to its corresponding control pin on the Arduino Uno, as labeled in **Figure 7 and 8**.
 
-The following scripts were developed to test individual components and execute the robotic arm's demonstrations. Each motor is attached to its corresponding control pin on the Arduino Uno, as labeled in **Figure 7 and 8 (referencing the circuit diagram above)**.
-
-**[EMBED FIGURE 8 HERE, Label Motors]**
-
+![Motors Labeled](images/8_CAD_label.png)
+*Figure 8: Motor numbering convention used for the scripting below.*
 
 ### **Individual Motor Test (V2)**
 This initial script provided a fundamental interface for controlling individual servos directly via the Arduino's serial monitor. Users could select a specific servo (e.g., `S2`) and then input a desired angle (e.g., `120`) to command its movement. A `SPEED=XX` command also allowed for adjusting the movement velocity by setting a delay between each degree increment.
@@ -145,10 +149,10 @@ The final iterations, V4 and V5, truly brought the arm's functionality to life w
 This project, while successful in demonstrating functionality, presented several significant challenges that offered valuable learning experiences:
 
 ### **Wiring Management:**
-This aspect presented a significant and unexpected source of trial and error. My initial oversight in failing to allocate sufficient internal space for cabling led to a chaotic tangle of wires. For starters, during my first assembly attempt, the sheer volume of disarrayed wires prevented proper mounting of the robot onto its base. To bring some semblance of order to this chaos, I resorted to using lever nuts, carefully cutting wires to length, securing connections with hot glue where possible, and creating organized DuPont wire bundles.
+This aspect presented a significant and unexpected source of trial and error. My initial oversight in failing to allocate sufficient internal space for cabling led to a chaotic tangle of wires, as shown in **Figure 9**. For starters, during my first assembly attempt, the sheer volume of disarrayed wires prevented proper mounting of the robot onto its base. To bring some semblance of order to this chaos, I resorted to using lever nuts, carefully cutting wires to length, securing connections with hot glue where possible, and creating organized DuPont wire bundles.
 
-**[EMBED FIGURE 9 HERE, Wire Mess]**
-
+![Chaos](images/9_Chaos.jpg)
+*Figure 9: Early revision of the cable management, which was too bulky to fit into the base and caused a multitude of problemn.*
 
 Even with these initial mitigation efforts, I still had to exercise extreme caution when mounting the robot onto its base. The crowded wire cavity within the base meant that the first motor's mobility was severely limited (the robot could only cover approximately 120° of rotation). Beyond this range, it risked pulling the Dupont wires out of place.
 
@@ -178,6 +182,9 @@ Therefore, an approximate $7.05 \text{ Amp}$ peak draw would be required. This s
 
 ### **Hard-coding Positions:**
 The process of defining the 15 positions for the pick-and-place task was highly iterative and involved extensive trial and error. Fine-tuning each servo angle for each position was time-consuming, and the inherent inaccuracies of the SG90 servos exacerbated this difficulty, making it hard to achieve perfect repeatability. For more complex or adaptable robotic tasks, a more sophisticated control strategy (e.g., inverse kinematics) combined with precise feedback from encoders would be necessary for efficiency and accuracy.
+
+![Full](images/10_Final.jpg)
+*Figure 10: Hand-Gelina Jolie removing a roll of tape from my workstation.*
 
 ## **Future Improvements**
 
