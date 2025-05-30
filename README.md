@@ -41,7 +41,7 @@ This project was developed with the following key requirements in mind:
 
 1.  **Functionality:** The robotic arm must be capable of picking up an object from my desk and storing it away in a drawer.
 2.  **Assembly Constraint:** No soldering was allowed in the assembly of the electrical components (in an attempt to keep assembly straightforward and accessible to all).
-3.  **CAD Software:** No CAD software was to be used (in an effort to keep the project accessible and timely).
+3.  **Design:** No CAD design was to be used (in an effort to keep the project accessible to all and timely).
 4.  **Timeline:** The entire system needed to be completed within two months, working in my free time.
 5.  **Cost-Effectiveness:** The total cost of all components for the system was to be less than $100.
 
