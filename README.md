@@ -1,14 +1,14 @@
-# Desk Cleaning Robot Arm: A Sub-$100 Robotics Journey
+# Desk Cleaning Robot Arm: Hand-Gelina Jolie
 
 A 6-axis robot arm, built for under $100 using 3D printed parts and an Arduino, automates desk tidying while exploring core robotics principles.
 
-This post chronicles my adventure in building a 6-axis robotic arm, primarily for the noble cause of keeping my desk tidy. If you've ever dreamt of automating your clutter, this guide will walk you through how you can achieve a similar feat for **less than $100**.
+This post chronicles my adventure in building a 6-axis robotic arm, primarily for the noble cause of keeping my desk tidy. If you've ever dreamt of automating your clutter, this guide will walk you through how you can achieve a similar feat for **less than $100**. Her name is *Hand-Gelina Jolie.*
 
 My dive into this particular "rabbit hole" served a dual purpose: to introduce myself to the fascinating world of robotics and to significantly hone my mechanical problem-solving intuition. These personal objectives directly informed the project's requirements. In an effort to keep the project accessible and timely, I opted against using CAD software, instead leveraging open-source solid models from an online creator, reserving my efforts for the hands-on challenges of assembly, wiring, and programming.
 
 Within this report, you'll find a detailed Bill of Materials for all necessary components. I'll openly discuss some of my trials and tribulations, particularly when it came to wiring (and believe me, there were a few!). I'll also share practical advice gleaned from those experiences. Finally, I'll provide my Arduino scripts, which facilitated everything from initial tests and calibration to a hard-coded final demo performing a delightful pick-and-place task: retrieving a roll of solder wire from my desk and diligently storing it on a shelf.
 
-[![Watch the robot in action!](images/1_Tweet.jpg)](https://x.com/gitiforooz_/status/1896925021081333785)
+[![Watch the robot in action!](images/1_Tweet.png)](https://x.com/gitiforooz_/status/1896925021081333785)
 *Figure 1: Click to watch the full demo video on Twitter/X*
 
 ---
@@ -46,7 +46,7 @@ This project was developed with the following key requirements in mind:
 
 ## **Bill of Materials (BOM)**
 
-The following key components were utilized in the construction of the robotic arm. A detailed BOM, including specific links to parts (mostly sourced from Amazon for convenience), can be found in the project files as an Excel sheet named `BOM.xlsx`.
+The following key components were utilized in the construction of the robotic arm. A detailed BOM, including specific links to parts (mostly sourced from Amazon for convenience), can be found in the project files as an Excel sheet named `Hand-Gelina Jolie BOM.xlsx`.
 
 Below is some of my rationale in selecting critical components:
 
