@@ -11,6 +11,7 @@ Within this report, you'll find a detailed Bill of Materials for all necessary c
 *This project was done in Winter 2024-25*
 <p></p>
 ![arm_demo](images/1_Arm.gif)
+
 *Figure 1: Handgelina Jolie putting away solder wire*
 
 ---
