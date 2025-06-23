@@ -8,10 +8,11 @@ My dive into this particular "rabbit hole" served a dual purpose: to introduce m
 
 Within this report, you'll find a detailed Bill of Materials for all necessary components. I'll openly discuss some of my trials and tribulations, particularly when it came to wiring (and believe me, there were a few!). I'll also share practical advice gleaned from those experiences. Finally, I'll provide my Arduino scripts, which facilitated everything from initial tests and calibration to a hard-coded final demo performing a delightful pick-and-place task: retrieving a roll of solder wire from my desk and diligently storing it on a shelf.
 
-[![Watch the robot in action!](images/1_Tweet.png)](https://x.com/gitiforooz_/status/1896925021081333785)
+*This project was done in Winter 2024-25*
 
-*Figure 1: Click to watch the full demo video on Twitter/X*
+![arm demo](images/1_Arm.gif)
 
+*Figure 1: Handgelina Jolie putting away solder wire.*
 ---
 
 ## Table of Contents
